@@ -2,23 +2,27 @@
   "cursos": [
     {
       "id": 1,
-      "curso": "Angular"
+      "nome": "Angular"
     },
     {
-      "curso": "Angular Material",
+      "nome": "Angular Material",
       "id": 2
     },
     {
-      "curso": "Java",
+      "nome": "Java",
       "id": 3
     },
     {
-      "curso": "Java OO",
+      "nome": "Java OO",
       "id": 4
     },
     {
-      "curso": "JS Pristine",
+      "nome": "JS Pristine",
       "id": 5
+    },
+    {
+      "nome": "JS",
+      "id": 6
     }
   ]
 }

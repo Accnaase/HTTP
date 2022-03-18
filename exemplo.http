@@ -6,7 +6,7 @@ POST http://localhost:3000/cursos HTTP/1.1
 Content-Type: application/json
 
 {
-    "curso": "JS Pristine"
+    "nome": "JS"
 }
 
 ###
@@ -15,7 +15,7 @@ PUT http://localhost:3000/cursos/2 HTTP/1.1
 Content-Type: application/json
 
 {
-    "curso": "Angular Material"
+    "nome": "Angular Material"
 }
 
 ###

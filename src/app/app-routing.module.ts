@@ -4,8 +4,10 @@ import { CursosListaComponent } from './cursos/cursos-lista/cursos-lista.compone
 
 const routes: Routes = [
   {
-    path: 'cursos', component: CursosListaComponent
-  }, 
+    path: '', pathMatch: "full", redirectTo:"cursos"  }, 
+  { path: 'cursos',
+    loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule)
+  },
 ];
 
 @NgModule({
