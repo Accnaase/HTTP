@@ -24,7 +24,7 @@
                     <td> {{ curso.nome }} </td>
                     <td>
                         <span class="float-end">
-                            <button class="btn btn-outline-success mb-1 btn-sm">
+                            <button class="btn btn-outline-success mb-1 btn-sm" (click)="onEdit(curso.id)">
                                 Atualizar
                             </button>
                             <button class="btn btn-outline-danger mb-1 btn-sm">
@@ -36,7 +36,7 @@
             </tbody>
         </table>
         <ng-template #loading >
-            <span>Carregando Cursos...</span>
+            <span class="fs-4">Carregando Cursos...</span>
         </ng-template>
     </div>
 </div>

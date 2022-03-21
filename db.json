@@ -23,6 +23,18 @@
     {
       "nome": "JS",
       "id": 6
+    },
+    {
+      "nome": "Node JS",
+      "id": 7
+    },
+    {
+      "nome": "HTTP",
+      "id": 8
+    },
+    {
+      "nome": "Angular material",
+      "id": 9
     }
   ]
 }
