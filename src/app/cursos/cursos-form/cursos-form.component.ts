@@ -19,7 +19,7 @@ export class CursosFormComponent implements OnInit {
     private _service: CursosService,
     private _router: Router,
     private _route: ActivatedRoute
-    ) { }
+  ) { }
 
   ngOnInit(): void {
 
@@ -32,7 +32,7 @@ export class CursosFormComponent implements OnInit {
     // mergeMap => A ordem das requisições não importa
     //concatMap => a ordem das requisições importa
     //exhuastMap => casos de login
-    
+
     const curso = this._route.snapshot.data['curso'];
 
     this.form = this._fb.group({
@@ -48,30 +48,46 @@ export class CursosFormComponent implements OnInit {
     })
   }
 
-  hasError(field:string) {
+  hasError(field: string) {
     return this.form.get(field)?.errors || undefined;
-  } 
+  }
 
   onSubmit() {
     this.submitted = true;
     console.log(this.form.value);
-    
-    if(this.form.valid) {
+
+    if (this.form.valid) {
       console.log("Submit");
-      this._service.create(this.form.value).subscribe(
+
+      this._service.save(this.form.value).subscribe(
         success => {
           this._router.navigate(['cursos'])
         },
-        error => console.error(error),
-        () => console.log("request Completo")
-
+        error => {
+          console.log('Ocorreu um erro de requisição, tente novamente mais tarde')
+        }
       )
+
+      // if (this.form.value.id) {
+      //   this._service.update(this.form.value).subscribe(
+      //     success => {
+      //       this._router.navigate(['cursos'])
+      //     },
+      //     error => console.log('Ocorreu um erro de requisição, tente novamente mais tarde'))
+
+      // } else {
+      //   this._service.create(this.form.value).subscribe(
+      //     success => {
+      //       this._router.navigate(['cursos'])
+      //     },
+      //     error => console.error(error),
+      //     () => console.log("request Completo")
+      //   )
+      // }
     }
   }
-
   onCancel() {
-    this.submitted = false;
+    this.submitted = false
     this._router.navigate(['cursos'])
   }
-
 }
