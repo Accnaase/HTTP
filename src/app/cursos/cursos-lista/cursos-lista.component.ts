@@ -25,6 +25,7 @@ export class CursosListaComponent implements OnInit {
     // .subscribe( dados => this.cursos = dados );
     // para fazer a desinscrição automática podemos atribuir a chamada do serviço em um observable e utilizar o pipe Async no template.
     this.cursos$ = this.service.list();  
+    
   }
 
   onEdit(id: number) {

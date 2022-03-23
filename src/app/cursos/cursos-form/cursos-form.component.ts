@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map, switchMap } from 'rxjs';
 import { CursosService } from '../cursos.service';
 
 @Component({
@@ -22,21 +23,21 @@ export class CursosFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._route.params.subscribe(
-      (params: any) => {
-        const id = params['id']; 
-        const curso$ = this._service.loadById(id);
-        curso$.subscribe(
-          curso => {
-            this.updateForm(curso)
-          });
-      }
-    ); 
-
+    // this._route.params
+    // .pipe(
+    //   map((params: any) => params['id']),
+    //   switchMap(id => this._service.loadById(id))
+    // )
+    // .subscribe((curso) => this.updateForm(curso))
+    // mergeMap => A ordem das requisições não importa
+    //concatMap => a ordem das requisições importa
+    //exhuastMap => casos de login
+    
+    const curso = this._route.snapshot.data['curso'];
 
     this.form = this._fb.group({
-      id: [null],
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]]
+      id: [curso.id],
+      nome: [curso.nome, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]]
     });
   }
 
