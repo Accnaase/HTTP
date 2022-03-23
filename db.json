@@ -1,11 +1,11 @@
 {
   "cursos": [
     {
-      "id": 1,
-      "nome": "Angular/CLI"
+      "nome": "Angular",
+      "id": 1
     },
     {
-      "nome": "Angular Material",
+      "nome": "Spring",
       "id": 2
     },
     {
