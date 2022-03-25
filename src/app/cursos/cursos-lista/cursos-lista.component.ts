@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, empty, Observable } from 'rxjs';
-import { CursosService } from '../cursos.service';
+  import { Cursos2Service } from '../cursos2.service';
 import { Curso } from './curso';
 
 @Component({
@@ -15,7 +15,7 @@ export class CursosListaComponent implements OnInit {
   cursos$!: Observable<Curso[]>;
 
   constructor(
-    private service: CursosService,
+    private service: Cursos2Service,
     private _router: Router,
     private route : ActivatedRoute
   ) { }
